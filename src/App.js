@@ -3,10 +3,10 @@ import Quizzes from './components/Quizzes'
 import { getQuizzes } from './firebase'
 
 const instruction = `1. Mở trang https://dovui.bns.garena.vn và đăng nhập tài khoản của bạn
-2. Nhấn Ctrl + A sau đó nhấn Ctrl + C để copy toàn bộ nội dung của trang dovui
-3. Paste vào khung này sau đó nhấn nút "Lấy câu trả lời"
+2. Nhấn Ctrl + A sau đó nhấn Ctrl + C để copy toàn bộ nội dung của trang đố vui
+3. Nhấn Ctrl + V để copy nội dung vào khung này sau đó nhấn nút "Lấy câu trả lời"
 
-Bạn không cần phải copy từng câu hỏi, bạn chỉ cần copy toàn bộ text trên trang web.`
+Bạn không cần phải copy từng câu hỏi, bạn chỉ cần copy toàn bộ nội dung trên trang web.`
 
 class App extends Component {
   state = {
