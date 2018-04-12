@@ -1,7 +1,11 @@
 {
   "name": "dovui-bns",
   "version": "0.1.0",
+  "description": "Front-end side for dovui-bns",
   "private": true,
+  "workspaces": [
+    "functions"
+  ],
   "dependencies": {
     "firebase": "^4.12.1",
     "react": "^16.3.1",
