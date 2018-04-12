@@ -59,7 +59,7 @@ class NoAnswerQuestion extends Component {
           </button>
           </div>
         </form>
-        {error && <small className="text-danger">{error}</small>}
+        {error && <small className="text-danger">Lỗi: {error}! Bạn vui lòng thử lại sau.</small>}
       </li>
     )
   }

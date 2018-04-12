@@ -64,7 +64,7 @@ class App extends Component {
           </form>
         </nav>
         <Quizzes questions={questions} quizzes={quizzes} />
-        {error && <h5 className="text-danger text-center">{error}</h5>}
+        {error && <h5 className="text-danger text-center">Lỗi: {error}! Bạn vui lòng thử lại sau.</h5>}
         {loading && <div className="loader mx-auto" />}
       </div>
     )
