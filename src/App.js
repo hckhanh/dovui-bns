@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react'
 import Quizzes from './components/Quizzes'
 import { getQuizzes } from './firebase'
+import { extractQuestion } from './utils'
 
 const instruction = `1. Mở trang https://dovui.bns.garena.vn và đăng nhập tài khoản của bạn
 2. Nhấn Ctrl + A sau đó nhấn Ctrl + C để copy toàn bộ nội dung của trang đố vui
@@ -21,11 +22,7 @@ class App extends Component {
 
     if (questionsString.length) {
       this.setState({ loading: true, error: null, questions: [], quizzes: [] })
-      const questions = questionsString
-        .split('\n')
-        .map(line => line.trim())
-        .filter(line => line.endsWith('?') === true)
-        .map(question => ({ question }))
+      const questions = extractQuestion(questionsString)
 
       getQuizzes(questions)
         .then(({ data: quizzes }) => {
