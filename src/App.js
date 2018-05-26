@@ -14,7 +14,8 @@ class App extends Component {
     questions: [],
     quizzes: [],
     loading: false,
-    error: null
+    error: null,
+    debug: false
   }
 
   sendQuestions = () => {
@@ -32,13 +33,17 @@ class App extends Component {
     }
   }
 
+  toggleDebug = () => {
+    this.setState({ debug: !this.state.debug })
+  }
+
   constructor(props) {
     super(props)
     this.questionsRef = createRef()
   }
 
   render() {
-    const { questions, quizzes, loading, error } = this.state
+    const { questions, quizzes, loading, error, debug } = this.state
 
     return (
       <div className="w-50 mx-auto pt-5">
@@ -51,6 +56,11 @@ class App extends Component {
             placeholder={instruction} />
         </div>
         <nav className="navbar navbar-dark bg-primary">
+          <div className="form-check form-check-inline text-light">
+            <input className="form-check-input" type="checkbox" id="debugCheck" value="debug"
+                   checked={debug} onChange={this.toggleDebug} />
+            <label className="form-check-label" htmlFor="debugCheck">Chế độ Debug</label>
+          </div>
           <form className="form-inline ml-auto">
             <button
               className="btn btn-outline-light"
@@ -60,7 +70,7 @@ class App extends Component {
             </button>
           </form>
         </nav>
-        <Quizzes questions={questions} quizzes={quizzes} />
+        <Quizzes debug={debug} questions={questions} quizzes={quizzes} />
         {error && <h5 className="text-danger text-center">Lỗi: {error}! Bạn vui lòng thử lại sau.</h5>}
         {loading && <div className="loader mx-auto" />}
       </div>
