@@ -2,7 +2,7 @@ import React from 'react'
 import NoAnswerQuestion from './NoAnswerQuestion'
 
 function parseDebugUrl(quiz) {
-  return `https://www.google.com/search?q=${quiz.id}`
+  return `https://console.firebase.google.com/project/dovui-bns/database/firestore/data~2Fquizzes~2F${quiz.id}`
 }
 
 const Question = ({ quiz, debug }) => (
