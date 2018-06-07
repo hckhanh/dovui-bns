@@ -1,11 +1,15 @@
 import React from 'react'
 import NoAnswerQuestion from './NoAnswerQuestion'
 
+function parseDebugUrl(quiz) {
+  return `https://www.google.com/search?q=${quiz.id}`
+}
+
 const Question = ({ quiz, debug }) => (
   <li className="list-group-item">
     <div className="d-flex justify-content-between">
       <h5 className='text-primary mb-1'>{quiz.question}</h5>
-      {debug && <div className="text-black-50">{quiz.id}</div>}
+      {debug && <a className="text-black-50" href={parseDebugUrl(quiz)} target="_blank">{quiz.id}</a>}
     </div>
     <p className='text-secondary mb-1'>{quiz.answer}</p>
   </li>
