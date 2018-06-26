@@ -66,7 +66,6 @@ class NoAnswerQuestion extends Component {
 
   generateNoAnswerQuestion = () => {
     const { question } = this.props.question
-    console.log(this.props)
 
     return (
       <li className="list-group-item">
@@ -87,7 +86,7 @@ class NoAnswerQuestion extends Component {
       <li className="list-group-item">
         <h5 className='text-primary mb-1'>{question}</h5>
         <p className='text-success d-inline'>
-          Cảm ơn bạn đã đóng góp câu trả lời. Chúc bạn chơi <b>Blade & Soul</b> vui vẻ :D
+          Cảm ơn bạn đã đóng góp câu trả lời. Chúc bạn chơi Blade & Soul vui vẻ :D
         </p>
       </li>
     )
