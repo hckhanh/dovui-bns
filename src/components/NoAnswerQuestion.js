@@ -86,7 +86,8 @@ class NoAnswerQuestion extends Component {
     return (
       <li className="list-group-item">
         <h5 className='text-primary mb-1'>{question}</h5>
-        <p className='text-success d-inline'>Cảm ơn bạn đã đóng góp. Chúc bạn chơi BnS vui vẻ :D</p>
+        <p className='text-success d-inline'>Cảm ơn bạn đã đóng góp câu trả lời. Chúc bạn chơi <b>Blade & Soul</b> vui
+          vẻ :D</p>
       </li>
     )
   }
