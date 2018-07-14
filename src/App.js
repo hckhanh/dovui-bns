@@ -1,4 +1,5 @@
 import React, { Component, createRef } from 'react'
+import QuestionLoaders from './components/QuestionLoaders'
 import Quizzes from './components/Quizzes'
 import { getQuizzes } from './firebase'
 import { extractQuestion } from './utils'
@@ -15,15 +16,22 @@ class App extends Component {
     quizzes: [],
     loading: false,
     error: null,
-    debug: false
+    debug: false,
+    numberQuestion: 5
   }
 
   sendQuestions = () => {
     const questionsString = this.questionsRef.current.value.trim()
 
     if (questionsString.length) {
-      this.setState({ loading: true, error: null, questions: [], quizzes: [] })
       const questions = extractQuestion(questionsString)
+      this.setState({
+        loading: true,
+        error: null,
+        questions: [],
+        quizzes: [],
+        numberQuestion: questions.length
+      })
 
       getQuizzes(questions)
         .then(({ data: quizzes }) => {
@@ -43,7 +51,7 @@ class App extends Component {
   }
 
   render() {
-    const { questions, quizzes, loading, error, debug } = this.state
+    const { questions, quizzes, loading, error, debug, numberQuestion } = this.state
 
     return (
       <div className="w-50 mx-auto pt-5">
@@ -66,13 +74,17 @@ class App extends Component {
               className="btn btn-outline-light"
               type="button"
               disabled={loading}
-              onClick={this.sendQuestions}>Lấy câu trả lời
+              onClick={this.sendQuestions}>
+              Lấy câu trả lời
             </button>
           </form>
         </nav>
-        <Quizzes debug={debug} questions={questions} quizzes={quizzes} />
+        {
+          loading ?
+            <QuestionLoaders numberQuestion={numberQuestion} debug={debug} /> :
+            <Quizzes debug={debug} questions={questions} quizzes={quizzes} />
+        }
         {error && <h5 className="text-danger text-center">Lỗi: {error}! Bạn vui lòng thử lại sau.</h5>}
-        {loading && <div className="loader mx-auto" />}
       </div>
     )
   }
