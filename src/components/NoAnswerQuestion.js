@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
 import { newQuiz } from '../firebase'
 
-class NoAnswerQuestion extends Component {
+export default class NoAnswerQuestion extends Component {
   state = {
     showSubmitForm: false,
     submitted: false,
@@ -44,19 +45,19 @@ class NoAnswerQuestion extends Component {
             </small>
           </div>
           <div className="form-row justify-content-end">
-          <button
-            type="button"
-            className="btn btn-secondary btn-sm mb-2 mr-sm-2"
-            disabled={loading}
-            onClick={() => this.setState({ showSubmitForm: false })}>
-            Đóng
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary btn-sm mb-2"
-            disabled={loading}
-            onClick={this.submitQuiz}>Cập nhật
-          </button>
+            <button
+              type="button"
+              className="btn btn-secondary btn-sm mb-2 mr-sm-2"
+              disabled={loading}
+              onClick={() => this.setState({ showSubmitForm: false })}>
+              Đóng
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary btn-sm mb-2"
+              disabled={loading}
+              onClick={this.submitQuiz}>Cập nhật
+            </button>
           </div>
         </form>
         {error && <small className="text-danger">Lỗi: {error}! Bạn vui lòng thử lại sau.</small>}
@@ -110,4 +111,6 @@ class NoAnswerQuestion extends Component {
   }
 }
 
-export default NoAnswerQuestion
+NoAnswerQuestion.propTypes = {
+  question: PropTypes.string.isRequired
+}

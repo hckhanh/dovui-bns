@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import NoAnswerQuestion from './NoAnswerQuestion'
 
@@ -15,6 +16,11 @@ const Question = ({ quiz, debug }) => (
   </li>
 )
 
+Question.propTypes = {
+  quiz: PropTypes.object.isRequired,
+  debug: PropTypes.bool
+}
+
 const Quizzes = ({ questions, quizzes, debug }) => (
   <ul className="list-group mt-5">
     {
@@ -30,5 +36,11 @@ const Quizzes = ({ questions, quizzes, debug }) => (
     }
   </ul>
 )
+
+Quizzes.propTypes = {
+  questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  quizzes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  debug: PropTypes.bool
+}
 
 export default Quizzes
