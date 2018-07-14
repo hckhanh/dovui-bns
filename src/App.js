@@ -54,7 +54,7 @@ class App extends Component {
     const { questions, quizzes, loading, error, debug, numberQuestion } = this.state
 
     return (
-      <div className="w-50 mx-auto pt-5">
+      <div className="app-layout">
         <div className="input-group">
           <textarea
             className="form-control rounded-0"
