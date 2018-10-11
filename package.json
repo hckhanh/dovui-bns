@@ -7,12 +7,12 @@
     "functions"
   ],
   "dependencies": {
-    "firebase": "^5.3.1",
+    "firebase": "^5.5.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-content-loader": "^3.1.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,5 +20,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "yarn build && firebase deploy --only hosting"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
