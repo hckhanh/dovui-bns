@@ -12,12 +12,13 @@ Bạn không cần phải copy từng câu hỏi, bạn chỉ cần copy toàn b
 
 class App extends Component {
   state = {
-    questions: [],
     quizzes: [],
-    loading: false,
     error: null,
     debug: false,
-    numberQuestion: 5
+    questions: [],
+    loading: false,
+    numberQuestion: 5,
+    emptyQuestions: true
   }
 
   sendQuestions = () => {
@@ -45,13 +46,17 @@ class App extends Component {
     this.setState({ debug: !this.state.debug })
   }
 
+  handleQuestionsChange = () => {
+    this.setState({ emptyQuestions: !this.questionsRef.current.value })
+  }
+
   constructor(props) {
     super(props)
     this.questionsRef = createRef()
   }
 
   render() {
-    const { questions, quizzes, loading, error, debug, numberQuestion } = this.state
+    const { questions, quizzes, loading, error, debug, numberQuestion, emptyQuestions } = this.state
 
     return (
       <div className="app-layout">
@@ -61,6 +66,7 @@ class App extends Component {
             aria-label="Questions"
             rows={10}
             ref={this.questionsRef}
+            onChange={this.handleQuestionsChange}
             placeholder={instruction} />
         </div>
         <nav className="navbar navbar-dark bg-primary">
@@ -73,7 +79,7 @@ class App extends Component {
             <button
               className="btn btn-outline-light"
               type="button"
-              disabled={loading}
+              disabled={loading || emptyQuestions}
               onClick={this.sendQuestions}>
               Lấy câu trả lời
             </button>
