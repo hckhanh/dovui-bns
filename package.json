@@ -17,9 +17,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cypress run",
     "eject": "react-scripts eject",
-    "deploy": "yarn build && firebase deploy --only hosting"
+    "deploy": "yarn build && firebase deploy --only hosting",
+    "ci": "start-server-and-test start http://localhost:3000 test"
   },
   "browserslist": [
     ">0.2%",
@@ -28,6 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "cypress": "^3.1.0"
+    "cypress": "^3.1.0",
+    "start-server-and-test": "^1.7.4"
   }
 }
