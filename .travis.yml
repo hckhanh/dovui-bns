@@ -8,7 +8,7 @@ cache:
     - node_modules
     - functions/node_modules
 script:
-  - $(npm bin)/cypress run --record
+  - yarn ci
   - yarn build
 deploy:
   provider: firebase
