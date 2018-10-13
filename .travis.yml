@@ -3,9 +3,12 @@ node_js: 'node'
 cache:
   yarn: true
   directories:
+  - ~/.npm
+  - ~/.cache
     - node_modules
     - functions/node_modules
 script:
+- $(npm bin)/cypress run --record
   - yarn build
 deploy:
   provider: firebase
