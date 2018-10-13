@@ -7,13 +7,16 @@ cache:
     - ~/.cache
     - node_modules
     - functions/node_modules
-script:
+install:
   - cd functions/
   - yarn
   - cd ..
+  - yarn
+script:
   - yarn ci
   - yarn build
 deploy:
+  skip_cleanup: true
   provider: firebase
   token: "$FIREBASE_TOKEN"
   on: master
