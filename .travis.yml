@@ -8,6 +8,9 @@ cache:
     - node_modules
     - functions/node_modules
 script:
+  - cd functions/
+  - yarn
+  - cd ..
   - yarn ci
   - yarn build
 deploy:
