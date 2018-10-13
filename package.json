@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "cypress run",
+    "test": "cypress run --record",
     "eject": "react-scripts eject",
     "deploy": "yarn build && firebase deploy --only hosting",
     "ci": "start-server-and-test start http://localhost:3000 test"
