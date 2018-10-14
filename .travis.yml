@@ -17,9 +17,7 @@ jobs:
     - stage: test front-end
       script: yarn ci
     - stage: deploy front-end
-      script:
-        - yarn build
-        - firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+      script: yarn deploy --token "$FIREBASE_TOKEN"
 stages:
   - test front-end
   - name: deploy front-end
