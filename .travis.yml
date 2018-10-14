@@ -12,11 +12,17 @@ install:
   - yarn
   - cd ..
   - yarn
-script:
-  - yarn ci
-  - yarn build
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token: "$FIREBASE_TOKEN"
-  on: master
+
+jobs:
+  include:
+    - stage: test front-end
+      script: yarn ci
+    - stage: deploy front-end
+      script:
+        - yarn build
+        - firebase deploy --only hosting --token "$FIREBASE_TOKEN"
+
+stages:
+  - test front-end
+  - name: deploy front-end
+    if: branch = master
