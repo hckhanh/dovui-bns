@@ -17,7 +17,9 @@ jobs:
     - stage: test front-end
       script: yarn ci
     - stage: deploy front-end
-      script: yarn deploy --token "$FIREBASE_TOKEN"
+      script:
+        - npm install -g firebase-tools
+        - yarn deploy --token "$FIREBASE_TOKEN"
 stages:
   - test front-end
   - name: deploy front-end
