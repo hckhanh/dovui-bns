@@ -12,7 +12,6 @@ install:
   - yarn
   - cd ..
   - yarn
-
 jobs:
   include:
     - stage: test front-end
@@ -21,7 +20,6 @@ jobs:
       script:
         - yarn build
         - firebase deploy --only hosting --token "$FIREBASE_TOKEN"
-
 stages:
   - test front-end
   - name: deploy front-end
