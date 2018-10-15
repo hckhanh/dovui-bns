@@ -28,7 +28,7 @@ context('Quizzes', function() {
       })
 
       cy.get('.btn').contains('Lấy câu trả lời').click({ force: true })
-      cy.wait(2000)
+      cy.wait(10000)
 
       cy.get('.list-group .list-group-item .text-danger')
         .contains('Câu hỏi này chưa có đáp án!')
