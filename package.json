@@ -7,11 +7,11 @@
     "functions"
   ],
   "dependencies": {
-    "firebase": "^5.5.4",
+    "firebase": "^5.5.5",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2",
+    "react": "^16.6.0",
     "react-content-loader": "^3.1.2",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.6.0",
     "react-scripts": "2.0.5"
   },
   "scripts": {
@@ -30,6 +30,6 @@
   ],
   "devDependencies": {
     "cypress": "^3.1.0",
-    "start-server-and-test": "^1.7.4"
+    "start-server-and-test": "^1.7.5"
   }
 }
