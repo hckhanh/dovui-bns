@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { memo } from 'react'
 import NoAnswerQuestion from './NoAnswerQuestion'
 
 function parseDebugUrl(quiz) {
   return `https://console.firebase.google.com/project/dovui-bns/database/firestore/data~2Fquizzes~2F${quiz.id}`
 }
 
-const Question = ({ quiz, debug }) => (
+const Question = memo(({ quiz, debug }) => (
   <li className="list-group-item">
     <div className="d-flex justify-content-between">
       <h5 className='text-primary mb-1'>{quiz.question}</h5>
@@ -20,7 +20,7 @@ const Question = ({ quiz, debug }) => (
     </div>
     <p className='text-secondary mb-1'>{quiz.answer}</p>
   </li>
-)
+))
 
 Question.propTypes = {
   quiz: PropTypes.object.isRequired,
@@ -49,4 +49,4 @@ Quizzes.propTypes = {
   debug: PropTypes.bool
 }
 
-export default Quizzes
+export default memo(Quizzes)

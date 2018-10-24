@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
 
-const QuestionLoader = ({ debug }) => (
+const QuestionLoader = memo(({ debug }) => (
   <li className="list-group-item">
     <ContentLoader height={56} width={951.5}>
       <rect x="0" y="0" rx="0" ry="0" width="650" height="24" />
@@ -10,7 +10,7 @@ const QuestionLoader = ({ debug }) => (
       {debug && <rect x="764" y="0" rx="0" ry="0" width="187" height="16" />}
     </ContentLoader>
   </li>
-)
+))
 
 QuestionLoader.propTypes = {
   debug: PropTypes.bool
@@ -30,4 +30,4 @@ QuestionLoaders.propTypes = {
   debug: PropTypes.bool
 }
 
-export default QuestionLoaders
+export default memo(QuestionLoaders)
